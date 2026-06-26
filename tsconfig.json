@@ -8,10 +8,9 @@
 
     /* Mode Bundler (Vite) */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
-    "noEmit": true,
+    "noEmit": false,
 
     /* RÈGLE : Robustesse du typage pour TypeDoc */
     "strict": true,                      // Active toute la suite des vérifications strictes
