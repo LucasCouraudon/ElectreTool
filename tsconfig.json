@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es2023",
+    "module": "esnext",
+    "lib": ["ES2023", "DOM"],
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+
+    /* Mode Bundler (Vite) */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* RÈGLE : Robustesse du typage pour TypeDoc */
+    "strict": true,                      // Active toute la suite des vérifications strictes
+    "noImplicitAny": true,               // Interdit les types 'any' invisibles dans la doc
+    "strictNullChecks": true,            // Force à documenter si une valeur peut être 'null' ou 'undefined'
+
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}

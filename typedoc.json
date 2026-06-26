@@ -1,0 +1,7 @@
+{
+    "entryPoints": ["src/main.ts", "src/matrix.ts", "src/persistence.ts", "src/history.ts"],
+    "out": "docs/technical",
+    "theme": "default",
+    "cleanOutputDir": true,
+    "readme": "README.md"
+}

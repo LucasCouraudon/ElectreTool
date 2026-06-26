@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELECTRE Decision Support Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="icon"  href="/public/favicon.svg">
+    <script type="module" src="./src/main.ts"></script>
+</head>
+<body>
+
+<button id="sidebar-toggle-btn" class="sidebar-trigger-btn" aria-label="Open Decision History">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+<div class="container">
+    <h1>ELECTRE Support Tool</h1>
+    <h2> Performance Matrix</h2>
+    <div class="controls">
+        <label for="method-selector">Method:</label>
+        <select id="method-selector">
+            <option value="ELECTRE_II">ELECTRE II</option>
+            <option value="ELECTRE_Iv">ELECTRE Iv</option>
+        </select>
+    </div>
+
+
+    <table id="matrix-table">
+        <thead>
+            <tr id="header-row">
+                <th>Alternatives / Criteria</th>
+                <th>
+                    <span class="crit-display-name"></span>
+                    <button class="btn-edit-crit-name" data-index="0"><i class="fa-solid fa-pen"></i></button>
+                </th>
+                <th>
+                    <span class="crit-display-name"></span>
+                    <button class="btn-edit-crit-name" data-index="1"><i class="fa-solid fa-pen"></i></button>
+                </th>
+                <th id="actions-crit-cell">
+                    <div class="crit-actions-inline">
+                        <button id="btn-add-crit" class="btn-table-action success" aria-label="Add Criterion"><i class="fa-solid fa-plus"></i></button>
+                        <button id="btn-rem-crit" class="btn-danger btn-table-action" aria-label="Remove Criterion"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="matrix-body">
+            </tbody>
+        <tfoot id="matrix-footer">
+            <tr id="criterion-direction-row">
+                <td>
+                    <div class="alt-actions-inline">
+                        <button id="btn-add-alt" class="btn-table-action success" aria-label="Add Alternative"><i class="fa-solid fa-plus"></i></button>
+                        <button id="btn-rem-alt" class="btn-danger btn-table-action" aria-label="Remove Alternative"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <strong>Polarity</strong>
+                </td>
+                <td class="footer-filler"></td>
+            </tr>
+            <tr id="raw-weights-row">
+                <td><strong>Raw Weights</strong></td>
+                <td class="footer-filler"></td>
+            </tr>
+            <tr id="normalized-weights-row">
+                <td><strong>Normalized Coeff</strong></td>
+                <td><span class="normalized-weight-display">0.50</span></td>
+                <td class="footer-filler"></td>
+            </tr>
+        </tfoot>
+        </tbody>
+    </table>
+
+    <div id="error-box" class="error-message">
+        The matrix contains empty cells or non-numerical values. Calculation is blocked.
+    </div>
+
+    <div id="size-error-box" class="error-message warning-box">
+        The matrix must contain at least 2 criteria and 2 alternatives for the execution of ELECTRE algorithms.
+    </div>
+
+    <div id="results-section" class="results-container">
+        <h2>Execution Results</h2>
+        
+        <div class="results-grid">
+            <div>
+                <h3>Concordance Matrix</h3>
+                <div id="concordance-results-container"></div>
+            </div>
+            <div id="discordance-block">
+                <h3>Discordance Matrix</h3>
+                <div id="discordance-results-container"></div>
+            </div>
+        </div>
+
+        <div class="graph-section">
+            <h3>Identified Outranking Relations</h3>
+            <ul id="outranking-graph-list"></ul>
+                <div class="graph-section">
+            <h3>Identified Outranking Relations</h3>
+            <ul id="outranking-graph-list"></ul>
+            
+            <div id="graph-vector-container" style="max-width: 600px; margin: 20px auto; background: #fcfcfc; border-radius: 8px; border: 1px solid #eef2f5;"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+<div id="history-sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <button id="sidebar-close-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <h3>Decision History</h3>
+    </div>
+    <ul id="history-list">
+    </ul>
+</div>
+
+</body>
+
+
+</html>
